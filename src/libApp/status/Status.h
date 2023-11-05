@@ -31,7 +31,9 @@ public:
   enum RateCompensation {RC_NONE, RC_REFR_RA, RC_REFR_BOTH, RC_FULL_RA, RC_FULL_BOTH};
   enum ParkState { PRK_UNPARKED, PRK_PARKING, PRK_PARKED, PRK_FAILED, PRK_UNKNOW };
   enum PierState { PIER_NONE, PIER_E, PIER_W, PIER_UNKNOW };
-
+  //@WTH#########################################
+  enum WifiState { WIFI_OFF, WIFI_ON };
+  //###########################################
 public:
   void updateRaDec(bool immediate = false);
   void updateAzAlt(bool immediate = false);
@@ -39,6 +41,10 @@ public:
   void updateTel(bool immediate = false);
   bool getRA(double &RA);
   bool getDec(double &Dec);
+  //WTH#############################
+  WifiState  getWifiState();
+  bool isGPSValid();
+  //###############################
   double getLstT0();
   double getLat();
   int getAlignStars(int *maxStars, int *thisStar, int *numStars);

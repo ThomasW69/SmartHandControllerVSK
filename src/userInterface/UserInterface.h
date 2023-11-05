@@ -92,6 +92,11 @@ private:
   void menuBacklash();
   bool menuSetBacklash(uint8_t &axis);
   void menuPier();
+  //@WTH################################
+  void menuTelescopeSelect();
+  void FindHome(bool waitforkey);
+  void SpiralSearch();
+  //###################################  
   bool SelectStarAlign();
   void menuSettings();
   void menuMount();

@@ -153,21 +153,78 @@ void UI::menuMeridianW() {
   }
 }
 
+
+
+
+//@WTH###############################################################
 void UI::menuPier() {
-  // get preferred pier side user setting
-  bool ok = false;
-  char ppsState[20]=""; ok = onStep.Get(":GX96#",ppsState) == CR_VALUE_GET;
-  if (ok) {
-    uint8_t choice = 1;
-    if (ppsState[0] == 'B') choice = 1; else
-    if (ppsState[0] == 'E') choice = 2; else
-    if (ppsState[0] == 'W') choice = 3;
-    
-    choice = display->UserInterfaceSelectionList(&keyPad, L_MOUNT_PPS, choice, L_PPS_BEST "\n" L_PPS_EAST "\n" L_PPS_WEST);
-    if (choice) {
-      if (choice == 1) ok = message.show(onStep.Set(":SX96,B#"), false); else
-      if (choice == 2) ok = message.show(onStep.Set(":SX96,E#"), false); else
-      if (choice == 3) ok = message.show(onStep.Set(":SX96,W#"), false);
+    // get preferred pier side user setting
+    bool ok = false;
+    char ppsState[20] = ""; ok = onStep.Get(":GX96#", ppsState) == CR_VALUE_GET;
+    if (ok) {
+        uint8_t choice = 1;
+        if (ppsState[0] == 'B') choice = 1; else
+        if (ppsState[0] == 'E') choice = 2; else
+        if (ppsState[0] == 'W') choice = 3;
+
+        choice = display->UserInterfaceSelectionList(&keyPad, L_MOUNT_PPS, choice, L_PPS_BEST "\n" L_PPS_EAST "\n" L_PPS_WEST);
+        if (choice) {
+            if (choice == 1) ok = message.show(onStep.Set(":SX96,B#"), false); else
+            if (choice == 2) ok = message.show(onStep.Set(":SX96,E#"), false); else
+            if (choice == 3) ok = message.show(onStep.Set(":SX96,W#"), false);
+        }
     }
-  }
 }
+
+void UI::menuTelescopeSelect()
+{
+    bool ok = false;
+    uint8_t choice = 1;
+    choice = display->UserInterfaceSelectionList(&keyPad, L_MOUNT_TELESCOPE, choice, L_MOUNT_TEL1 "\n" L_MOUNT_TEL2);
+    if (choice) {
+        if (choice == 1) ok = message.show(onStep.Set(":SX96,1#"), false); else
+            if (choice == 2) ok = message.show(onStep.Set(":SX96,2#"), false);
+    }
+}
+
+
+
+//Extra funktion zm Homing der Deklinationsachse immer vor dem Sync
+void UI::FindHome(bool waitforkey)
+{
+    bool ok = false;
+    const char* s1 = "";
+    const char* s2 = "";
+    Status::TrackState currentstate = status.getTrackingState();
+    Status::PierState CurP = status.getPierState();
+    onStep.Set(":hC#"); // Homing
+    // message.show("Suche DE-", "Homeposition", 1000); 
+    // if (waitforkey) {message.show("Taste wenn", "gefunden", -1);} 
+    /*  status.updateTel(); // really make sure we have the status
+
+     while (!Status.atHome()) {
+      message.show("Suche", "   ...",500);
+      message.show("Suche", "...   ",500);
+      status.updateTel(); // really make sure we have the status
+     }
+     message.show("Gefunden", "",1000);
+
+    if (onStep.Set(":Te#")== CR_VALUE_GET) {
+       message.show(L_TRACKING, L_ON, 1000);
+       currentstate=Telescope::TRK_ON; }
+     else
+      message.show(L_SET_STATE, L_FAILED, 1000);*/
+}
+
+
+
+
+//Extra funktion zur Spiralsuche
+void UI::SpiralSearch()
+{
+    bool ok = false;
+    onStep.Set(":Mp#"); // Spiral Search
+    message.show("Taste wenn", "gefunden", -1);
+    onStep.Set(":Mp#"); // SpiralEnde
+}
+//###################################################################

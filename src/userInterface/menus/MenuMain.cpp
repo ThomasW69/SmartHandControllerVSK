@@ -98,7 +98,7 @@ void UI::menuFeatureKey() {
 }
 
 // Main Menu
-void UI::menuMain() {
+/*void UI::menuMain() {
   current_selection_L0 = 1;
   while (current_selection_L0 != 0) {
     if (status.isPecEnabled()) {
@@ -127,6 +127,83 @@ void UI::menuMain() {
     }
   }
 }
+*/
+
+
+
+
+
+//@WTH#######################################################################################################
+// Main Menu
+void UI::menuMain()
+{
+    current_selection_L0 = 1;
+    while (current_selection_L0 != 0)
+    {
+#ifndef Kuppel
+        //Ab hier für die Equatorialmontierung 
+        if (!status.isMountAltAz()) {
+            const char* string_list_main_UnParkedL0 = L_MM_FINDH "\n" L_MM_SYNC "\n" L_MM_GOTO "\n" L_MM_ALIGN "\n" L_MM_PARKING "\n" L_MM_TRACKING "\n" L_MM_PEC "\n" L_MM_SETTINGS;
+            current_selection_L0 = display->UserInterfaceSelectionList(&keyPad, L_MM_MAIN_MENU, current_selection_L0, string_list_main_UnParkedL0);
+            switch (current_selection_L0) {
+            case 1: FindHome(true); break;
+            case 2: menuPier(); 
+                    if (menuSyncGoto(true) == MR_QUIT) return; break;
+            case 3: if (menuSyncGoto(false) == MR_QUIT) return; break;
+            case 5: menuAlignment(); break;
+            case 6: menuParking(); break;
+            case 7: menuTracking(); break;
+            case 8: menuPEC(); break;
+            case 9: menuSettings(); break;
+            }
+        }
+        else {
+            const char* string_list_main_UnParkedL0 = L_MM_GOTO "\n" L_MM_SYNC "\n" L_MM_ALIGN "\n" L_MM_PARKING "\n" L_MM_TRACKING "\n" L_MM_SETTINGS;
+            current_selection_L0 = display->UserInterfaceSelectionList(&keyPad, L_MM_MAIN_MENU, current_selection_L0, string_list_main_UnParkedL0);
+            switch (current_selection_L0) {
+            case 1: if (menuSyncGoto(false) == MR_QUIT) return; break;
+            case 2: if (menuSyncGoto(true) == MR_QUIT) return; break;
+            case 3: menuAlignment(); break;
+            case 4: menuParking(); break;
+            case 5: menuTracking(); break;
+            case 6: menuSettings(); break;
+            }
+        }
+#else
+        //Ab hier für die AltAZ montierung 
+        if (!status.isMountAltAz()) {
+            const char* string_list_main_UnParkedL0 = L_MM_FINDH "\n" L_MOUNT_PIER "\n"  L_MM_SYNC "\n" L_MM_GOTO "\n" L_MM_TRACKING "\n" L_MM_PEC "\n" L_MM_SETTINGS "\n" L_MM_PARKING;
+            current_selection_L0 = display->UserInterfaceSelectionList(&keyPad, L_MM_MAIN_MENU, current_selection_L0, string_list_main_UnParkedL0);
+            switch (current_selection_L0) {
+            case 1: FindHome(true); break;
+            case 2: menuPier(); break;
+            case 3: menuPier(); if (menuSyncGoto(true) == MR_QUIT) return; break;
+            case 4: if (menuSyncGoto(false) == MR_QUIT) return; break;
+            case 5: menuTracking(); break;
+            case 6: menuPEC(); break;
+            case 7: menuSettings(); break;
+            case 8: menuParking(); break;
+            }
+        }
+        else {
+            const char* string_list_main_UnParkedL0 = L_MM_GOTO "\n" L_MM_SYNC "\n" L_MM_TRACKING "\n" L_MOUNT_PIER "\n" L_MM_SETTINGS "\n" L_MM_ALIGN "\n" L_MM_PARKING;
+            current_selection_L0 = display->UserInterfaceSelectionList(&keyPad, L_MM_MAIN_MENU, current_selection_L0, string_list_main_UnParkedL0);
+            switch (current_selection_L0) {
+            case 1: if (menuSyncGoto(false) == MR_QUIT) return; break;
+            case 2: if (menuSyncGoto(true) == MR_QUIT) return; break;
+            case 3: menuTracking(); break;
+            case 4: menuPier(); break;
+            case 5: menuSettings(); break;
+            case 6: menuAlignment(); break;
+            case 7: menuParking(); break;
+            }
+        }
+
+
+#endif  
+    }
+}
+//################################################################################
 
 // Parking Menu
 void UI::menuParking() {

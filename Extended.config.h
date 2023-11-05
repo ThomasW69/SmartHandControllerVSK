@@ -31,18 +31,36 @@
 // IP ADDRESS SETTINGS -------------------------------------------------------------------------------------------------------------
                                           //              then specify SERIAL_IP as the serial port in Config.h
 
-#define ONSTEP1_HOST_NAME                     ""      //    "OnStep", Wifi Host Name to connnect to, leave blank to disable.              Adjust
-#define ONSTEP1_SSID                  "Steuerung30er" //    "ONSTEP", Wifi alternate Station SSID to connnect to.                         Adjust
-#define ONSTEP1_PASSWORD                   "password" //  "password", Wifi Station mode password.                                         Adjust
-#define ONSTEP1_IP_ADDR                 {192,168,0,1} //  ..168,0,1}, Wifi Target IP Address to connect to.                               Adjust
 
-#define ONSTEP2_HOST_NAME                          "" //          "", Wifi Host Name to connnect to, leave blank to disable.              Adjust
-#define ONSTEP2_SSID                "Kuppelsteuerung" //    "ONSTEP", Wifi alternate Station SSID to connnect to.                         Adjust
-#define ONSTEP2_PASSWORD                   "password" //          "", Wifi alternate Station mode password.                               Adjust
-#define ONSTEP2_IP_ADDR                 {192,168,0,1} //  ..168,0,1}, Wifi alternate Target IP Address to connect to.                     Adjust
+#ifdef Kuppel
+ #define ONSTEP1_HOST_NAME                          "" //          "", Wifi Host Name to connnect to, leave blank to disable.              Adjust 
+ #define ONSTEP1_SSID                "Kuppelsteuerung" //    "ONSTEP", Wifi alternate Station SSID to connnect to.                         Adjust
+ #define ONSTEP1_PASSWORD                   "password" //          "", Wifi alternate Station mode password.                               Adjust
+ #define ONSTEP1_IP_ADDR                 {192,168,0,1} //  ..168,0,1}, Wifi alternate Target IP Address to connect to.                     Adjust
 
-#define ONSTEP3_HOST_NAME                  "FRITZBox" //          "", Wifi Host Name to connnect to, leave blank to disable.              Adjust
-#define ONSTEP3_SSID              "FRITZ!Box 7590 FN" //    "ONSTEP", Wifi alternate Station SSID to connnect to.                         Adjust
-#define ONSTEP3_PASSWORD       "90508353087962707609" //  "password", Wifi alternate Station mode password.                               Adjust
-#define ONSTEP3_IP_ADDR             {192,168,178,175} //  ..168,0,1}, Wifi alternate Target IP Address to connect to.                     Adjust
+ #define ONSTEP2_HOST_NAME                  "FRITZBox" //          "", Wifi Host Name to connnect to, leave blank to disable.              Adjust
+ #define ONSTEP2_SSID              "FRITZ!Box 7590 FN" //    "ONSTEP", Wifi alternate Station SSID to connnect to.                         Adjust
+ #define ONSTEP2_PASSWORD       "90508353087962707609" //  "password", Wifi alternate Station mode password.                               Adjust
+ #define ONSTEP2_IP_ADDR             {192,168,178,175} //  ..168,0,1}, Wifi alternate Target IP Address to connect to.                     Adjust
 
+ #define ONSTEP3_HOST_NAME                     ""      //    "OnStep", Wifi Host Name to connnect to, leave blank to disable.              Adjust
+ #define ONSTEP3_SSID                  "Steuerung30er" //    "ONSTEP", Wifi alternate Station SSID to connnect to.                         Adjust
+ #define ONSTEP3_PASSWORD                   "password" //  "password", Wifi Station mode password.                                         Adjust
+ #define ONSTEP3_IP_ADDR                 {192,168,0,1} //  ..168,0,1}, Wifi Target IP Address to connect to.                               Adjust 
+
+#else
+ #define ONSTEP1_HOST_NAME                     ""      //    "OnStep", Wifi Host Name to connnect to, leave blank to disable.              Adjust
+ #define ONSTEP1_SSID                  "Steuerung30er" //    "ONSTEP", Wifi alternate Station SSID to connnect to.                         Adjust
+ #define ONSTEP1_PASSWORD                   "password" //  "password", Wifi Station mode password.                                         Adjust
+ #define ONSTEP1_IP_ADDR                 {192,168,0,1} //  ..168,0,1}, Wifi Target IP Address to connect to.                               Adjust 
+
+ #define ONSTEP2_HOST_NAME                          "" //          "", Wifi Host Name to connnect to, leave blank to disable.              Adjust 
+ #define ONSTEP2_SSID                "Kuppelsteuerung" //    "ONSTEP", Wifi alternate Station SSID to connnect to.                         Adjust
+ #define ONSTEP2_PASSWORD                   "password" //          "", Wifi alternate Station mode password.                               Adjust
+ #define ONSTEP2_IP_ADDR                 {192,168,0,1} //  ..168,0,1}, Wifi alternate Target IP Address to connect to.                     Adjust
+
+ #define ONSTEP3_HOST_NAME                  "FRITZBox" //          "", Wifi Host Name to connnect to, leave blank to disable.              Adjust
+ #define ONSTEP3_SSID              "FRITZ!Box 7590 FN" //    "ONSTEP", Wifi alternate Station SSID to connnect to.                         Adjust
+ #define ONSTEP3_PASSWORD       "90508353087962707609" //  "password", Wifi alternate Station mode password.                               Adjust
+ #define ONSTEP3_IP_ADDR             {192,168,178,175} //  ..168,0,1}, Wifi alternate Target IP Address to connect to.                     Adjust
+#endif

@@ -94,6 +94,7 @@
 
 //@WTH#########################################
 #define L_MM_SPIR "Spiralsuche"
+#define L_MM_FINDH "DE Homing"
 #define L_MOUNT_TELESCOPE "Teleskop waehlen"
 #define L_MOUNT_TEL1 "30er Cassegrain"
 #define L_MOUNT_TEL2 "Schiefspiegler"

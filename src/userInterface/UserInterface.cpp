@@ -560,9 +560,30 @@ void UI::updateMainDisplay(u8g2_uint_t page) {
           case Status::ERR_UNDER_POLE:  display->drawXBMP(x - icon_width, 0, icon_width, icon_height, ErrUp_bits);  x -= icon_width + 1; break; // for Eq mounts, past limit in HA
           case Status::ERR_MERIDIAN:    display->drawXBMP(x - icon_width, 0, icon_width, icon_height, ErrMe_bits);  x -= icon_width + 1; break; // for Eq mounts, past meridian limit
           case Status::ERR_ALT_MAX:     display->drawXBMP(x - icon_width, 0, icon_width, icon_height, ErrAlt_bits); x -= icon_width + 1; break; // above overhead
+          case Status::ERR_SITE_INIT:   display->drawXBMP(x - icon_width, 0, icon_width, icon_height, ErrGPS_bits); x -= icon_width + 1; break; // Site not init
+          case Status::ERR_WEATHER_INIT:display->drawXBMP(x - icon_width, 0, icon_width, icon_height, ErrWeather_bits); x -= icon_width + 1; break; // Site not init
           default:                      display->drawXBMP(x - icon_width, 0, icon_width, icon_height, ErrOth_bits); x -= icon_width + 1; break; // other error
         }
       }
+      //@WTH############################################################################################
+            //GPS info
+      if (status.isGPSValid()) { display->drawXBMP(x - icon_width, 0, icon_width, icon_height, GNSS_bits);   x -= icon_width + 1; };
+      //WIFI info
+      Status::WifiState   curWIFI = status.getWifiState();
+      if (curWIFI == Status::WIFI_OFF) { display->drawXBMP(x - icon_width, 0, icon_width, icon_height, wifi_not_connected_bits);   x -= icon_width + 1; }
+      else
+          if (curWIFI == Status::WIFI_ON) { display->drawXBMP(x - icon_width, 0, icon_width, icon_height, wifi_bits);   x -= icon_width + 1; }
+      //ToDo  Akkustand
+
+
+
+
+
+     //###############################################################################################
+
+
+
+
     }
 
     // show brief message
@@ -714,129 +735,140 @@ bool UI::SelectStarAlign() {
 }
 
 void UI::connect() {
-  char s[20] = "";
-  int thisTry = 0;
-  bool connectSuccess;
+    char s[20] = "";
+    int thisTry = 0;
+    bool connectSuccess;
 
-  #if SERIAL_IP_MODE == STATION
+#if SERIAL_IP_MODE == STATION
     if (firstConnect) menuWifi();
-  #endif
+#endif
 
 initAgain:
-  #if SERIAL_IP_MODE == STATION
+#if SERIAL_IP_MODE == STATION
     if (!wifiManager.active) {
-      bool initSuccess = true;
-      if (firstConnect) {
-        VLF("MSG: Connect, WiFi starting");
-        message.show(L_WIFI_CONNECTION1, wifiManager.sta->ssid, 100);
-      } else {
-        VLF("MSG: Connect, WiFi restarting");
-        message.show(L_WIFI_CONNECTION2, wifiManager.sta->ssid, 100);
-      }
-      delay(1000);
-      if (!wifiManager.init()) initSuccess = false;
+        bool initSuccess = true;
+        if (firstConnect) {
+            VLF("MSG: Connect, WiFi starting");
+            message.show(L_WIFI_CONNECTION1, wifiManager.sta->ssid, 100);
+        }
+        else {
+            VLF("MSG: Connect, WiFi restarting");
+            message.show(L_WIFI_CONNECTION2, wifiManager.sta->ssid, 100);
+        }
+        delay(1000);
+        if (!wifiManager.init()) initSuccess = false;
 
-      if (!initSuccess) {
-        VLF("MSG: Connect, WiFi failed");
-        message.show(L_WIFI_CONNECTION2, L_FAILED, 2000);
-        delay(5000);
-        goto initAgain;
-      }
+        if (!initSuccess) {
+            VLF("MSG: Connect, WiFi failed");
+            message.show(L_WIFI_CONNECTION2, L_FAILED, 2000);
+            delay(5000);
+            goto initAgain;
+        }
     }
-  #endif
+#endif
 
-  connectSuccess = true;
-  #if SERIAL_IP_MODE == STATION
+    connectSuccess = true;
+#if SERIAL_IP_MODE == STATION
     message.show(L_CONNECTING, IPAddress(wifiManager.sta->target).toString().c_str(), 1000);
     if (!SERIAL_ONSTEP.begin(serialBaud)) connectSuccess = false;
-  #else
-    #if defined(SERIAL_ONSTEP_RX) && defined(SERIAL_ONSTEP_TX)
-      SERIAL_ONSTEP.begin(serialBaud, SERIAL_8N1, SERIAL_ONSTEP_RX, SERIAL_ONSTEP_TX);
-    #else
-      SERIAL_ONSTEP.begin(serialBaud);
-    #endif
-  #endif
+#else
+#if defined(SERIAL_ONSTEP_RX) && defined(SERIAL_ONSTEP_TX)
+    SERIAL_ONSTEP.begin(serialBaud, SERIAL_8N1, SERIAL_ONSTEP_RX, SERIAL_ONSTEP_TX);
+#else
+    SERIAL_ONSTEP.begin(serialBaud);
+#endif
+#endif
 
-  if (!connectSuccess) {
-    VLF("MSG: Connect, to target failed");
-    SERIAL_ONSTEP.end();
-    #if SERIAL_IP_MODE == STATION
-      wifiManager.disconnect();
-    #endif
-    delay(7000);
-    message.show(L_CONNECTING, L_FAILED, 2000);
-    goto initAgain;
-  }
+    if (!connectSuccess) {
+        VLF("MSG: Connect, to target failed");
+        SERIAL_ONSTEP.end();
+#if SERIAL_IP_MODE == STATION
+        wifiManager.disconnect();
+#endif
+        delay(7000);
+        message.show(L_CONNECTING, L_FAILED, 2000);
+        goto initAgain;
+    }
 
-  VLF("MSG: Connect, looking for OnStep...");
+    VLF("MSG: Connect, looking for OnStep...");
 
 queryAgain:
-  if (thisTry % 1 == 0) message.show(L_LOOKING, "OnStep", 1000); else message.show(L_LOOKING, "...", 1000);
+    if (thisTry % 1 == 0) message.show(L_LOOKING, "OnStep", 1000); else message.show(L_LOOKING, "...", 1000);
 
-  for (int i = 0; i < 3; i++) {
-    SERIAL_ONSTEP.print(":#");
-    delay(400);
-    SERIAL_ONSTEP.flush();
-    delay(100);
-  }
-
-  CMD_RESULT r = onStep.Get(":GVP#", s);
-  if (r != CR_VALUE_GET || !strstr(s, "On-Step")) {
-    if (++thisTry % 5 != 0) {
-      goto queryAgain;
-    } else {
-      SERIAL_ONSTEP.end();
-      #if SERIAL_IP_MODE == STATION
-        wifiManager.disconnect();
-      #endif
-      delay(7000);
-      thisTry = 0;
-      goto initAgain;
+    for (int i = 0; i < 3; i++) {
+        SERIAL_ONSTEP.print(":#");
+        delay(400);
+        SERIAL_ONSTEP.flush();
+        delay(100);
     }
-  }
 
-  VLF("MSG: Connect, found OnStep");
+    CMD_RESULT r = onStep.Get(":GVP#", s);
+    if (r != CR_VALUE_GET || !strstr(s, "On-Step")) {
+        if (++thisTry % 5 != 0) {
+            goto queryAgain;
+        }
+        else {
+            SERIAL_ONSTEP.end();
+#if SERIAL_IP_MODE == STATION
+            wifiManager.disconnect();
+#endif
+            delay(7000);
+            thisTry = 0;
+            goto initAgain;
+        }
+    }
+
+    VLF("MSG: Connect, found OnStep");
 
 again2:
-  delay(1000);
+    delay(1000);
 
-  // OnStep coordinate mode for getting and setting RA/Dec
-  // 0 = OBSERVED_PLACE (same as not supported)
-  // 1 = TOPOCENTRIC (does refraction)
-  // 2 = ASTROMETRIC_J2000 (does refraction and precession/nutation)
-  thisTry = 0;
-  if (onStep.Get(":GXEE#", s) == CR_VALUE_GET && s[0] >= '0' && s[0] <= '3' && s[1] == 0) {
-    if (s[0] == '0') {
-      VLF("MSG: Connect, coords Observed Place");
-      telescopeCoordinates = OBSERVED_PLACE; 
-      message.show(L_CONNECTION, L_OK "!", 1000);
-      status.connected = true;
-    } else 
-    if (s[0] == '1') {
-      VLF("MSG: Connect, coords Topocentric");
-      telescopeCoordinates = TOPOCENTRIC; 
-      message.show(L_CONNECTION, L_OK "!", 1000);
-      status.connected = true;
-    } else 
-    if (s[0] == '2') {
-      VLF("MSG: Connect, coords J2000");
-      telescopeCoordinates = ASTROMETRIC_J2000;
-      message.show(L_CONNECTION, L_OK "!", 1000);
-      status.connected = true;
+    // OnStep coordinate mode for getting and setting RA/Dec
+    // 0 = OBSERVED_PLACE (same as not supported)
+    // 1 = TOPOCENTRIC (does refraction)
+    // 2 = ASTROMETRIC_J2000 (does refraction and precession/nutation)
+    thisTry = 0;
+    if (onStep.Get(":GXEE#", s) == CR_VALUE_GET && s[0] >= '0' && s[0] <= '3' && s[1] == 0) {
+        if (s[0] == '0') {
+            VLF("MSG: Connect, coords Observed Place");
+            telescopeCoordinates = OBSERVED_PLACE;
+            message.show(L_CONNECTION, L_OK "!", 1000);
+            status.connected = true;
+        }
+        else
+            if (s[0] == '1') {
+                VLF("MSG: Connect, coords Topocentric");
+                telescopeCoordinates = TOPOCENTRIC;
+                message.show(L_CONNECTION, L_OK "!", 1000);
+                status.connected = true;
+            }
+            else
+                if (s[0] == '2') {
+                    VLF("MSG: Connect, coords J2000");
+                    telescopeCoordinates = ASTROMETRIC_J2000;
+                    message.show(L_CONNECTION, L_OK "!", 1000);
+                    status.connected = true;
+                }
     }
-  } else {
-    if (++thisTry <= 3) goto again2;
-    VLF("WRN: Connect, get coords failed");
-    VLF("MSG: Connect, fallback Observed Place");
-    telescopeCoordinates = OBSERVED_PLACE;
-    message.show(L_CONNECTION, L_WARNING "!", 1000);
-    message.show(L_COORDINATES, L_OBSERVED_PLACE ".", 2000);
-  }
+    else {
+        if (++thisTry <= 3) goto again2;
+        VLF("WRN: Connect, get coords failed");
+        VLF("MSG: Connect, fallback Observed Place");
+        telescopeCoordinates = OBSERVED_PLACE;
+        message.show(L_CONNECTION, L_WARNING "!", 1000);
+        message.show(L_COORDINATES, L_OBSERVED_PLACE ".", 2000);
+    }
 
-  // check to see if we have auxiliary features
-  hasAuxFeatures = status.featureScan();
+    // check to see if we have auxiliary features
+    hasAuxFeatures = status.featureScan();
 
-  status.connected = true;
+    status.connected = true;
+
+    //@WTH ###########################################
+#ifndef Kuppel  
+    message.show("Seitenumschalter", "kontrollieren !", -1);
+    menuTelescopeSelect();
+#endif
+    //###############################################
 }
-
 UI userInterface;

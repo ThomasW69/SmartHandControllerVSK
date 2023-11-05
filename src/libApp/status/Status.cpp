@@ -132,6 +132,28 @@ Status::TrackState Status::getTrackingState() {
   if (tracking) return TRK_ON; else return TRK_OFF;
 }
 
+
+//@WTH#############################################
+Status::WifiState Status::getWifiState()
+{
+    //  if (strlen(TelStatus)<1) return TRK_UNKNOW;
+    //  bool tracking=false; bool slewing=false;
+    //  if (!(TelStatus[0]&0b00000010)) slewing=true; else tracking=(!(TelStatus[0]&0b00000001));
+    //  if (slewing) return TRK_SLEWING; else
+    //  if (tracking) return TRK_ON; else return TRK_OFF;
+    return WIFI_OFF;
+}
+
+bool Status::isGPSValid()
+{
+    if (strlen(TelStatus) < 9) return false;
+    return ((TelStatus[9] & 0b00000001)); //LSB in TelStatus[9] gesetzt?
+}
+
+//##################################################
+
+
+
 bool Status::atHome() {
   if (strlen(TelStatus) < 3) return false;
   if (TelStatus[2] & 0b00000001) return true; else return false;
