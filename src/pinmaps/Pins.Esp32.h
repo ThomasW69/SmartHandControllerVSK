@@ -1,5 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 // Pin map for ESP32
+//Pins wurden angepoasst an die Handcontrollervariante für den VSK2 Controller
 #pragma once
 
 #if defined(ESP32)
@@ -38,16 +39,16 @@
     #define B_PIN2             32  // S
     #endif
     #ifndef B_PIN3
-    #define B_PIN3             36  // E
+    #define B_PIN3             35  // E
     #endif
     #ifndef B_PIN4
-    #define B_PIN4             34  // W
+    #define B_PIN4             27  // W
     #endif
     #ifndef B_PIN5
-    #define B_PIN5             39  // F
+    #define B_PIN5             34  // F
     #endif
     #ifndef B_PIN6
-    #define B_PIN6             35  // f
+    #define B_PIN6             26  // f
     #endif
   #endif
 
