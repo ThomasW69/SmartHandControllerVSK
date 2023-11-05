@@ -1,0 +1,790 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SmartHandControllerVSK.ino" />
+    <ClCompile Include="Catalogs.config.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Extended.config.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Common.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Config.defaults.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Constants.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\Catalog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\Catalog.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\CatalogTypes.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\caldwell.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\caldwell_c.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\carbon.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\collinder.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\collinder_vc.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\gcvs.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\gcvs_select_c.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\herschel.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\herschel_c.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\ic.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\ic_select_c.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\messier.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\messier_c.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\ngc.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\ngc_select_c.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\ngc_vc.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\stars.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\stars_vc.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\stf.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\stf_c.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\stf_select_c.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\stt.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\stt_c.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\catalogs\data\stt_select_c.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HAL\HAL.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HAL\HAL_ESP32.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HAL\HAL_ESP8266.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HAL\HAL_MISC.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HAL\HAL_Teensy_3.2.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HAL\HAL_Teensy_3.5.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HAL\HAL_Teensy_3.6.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HAL\HAL_Teensy_4.0.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HAL\HAL_Teensy_4.1.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HAL\HAL_ZERO.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\Constants.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\Macros.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\1wire\1Wire.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\1wire\1Wire.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\analog\AN_ESP32.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\analog\AN_ESP32.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\Axis.command.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\Axis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\Axis.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\Drivers.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\Motor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\Motor.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\oDrive\ODrive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\oDrive\ODrive.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\servo\Servo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\servo\Servo.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\servo\ServoDriver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\servo\ServoDriver.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\servo\ServoEncoderFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\servo\dc\Dc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\servo\dc\Dc.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\servo\feedback\Feedback.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\servo\feedback\Feedback.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\servo\feedback\Pid\Pid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\servo\feedback\Pid\Pid.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\servo\tmc2209\Tmc2209.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\servo\tmc2209\Tmc2209.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\servo\tmc5160\Tmc5160.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\servo\tmc5160\Tmc5160.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\stepDir\StepDir.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\stepDir\StepDir.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\stepDir\StepDirDriver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\stepDir\StepDirDriver.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\stepDir\generic\Generic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\stepDir\generic\Generic.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\stepDir\tmcLegacy\LegacySPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\stepDir\tmcLegacy\LegacySPI.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\stepDir\tmcLegacy\LegacyUART.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\stepDir\tmcLegacy\LegacyUART.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\stepDir\tmcLegacy\TmcSPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\stepDir\tmcLegacy\TmcSPI.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\stepDir\tmcStepper\StepperSPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\stepDir\tmcStepper\StepperSPI.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\stepDir\tmcStepper\StepperUART.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\axis\motor\stepDir\tmcStepper\StepperUART.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\calendars\Calendars.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\calendars\Calendars.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\commands\BufferCmds.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\commands\BufferCmds.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\commands\CommandErrors.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\commands\SerialWrapper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\commands\SerialWrapper.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\convert\Convert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\convert\Convert.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\debug\Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\debug\Debug.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\encoder\Encoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\encoder\Encoder.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\encoder\bissc\As37h39bb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\encoder\bissc\As37h39bb.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\encoder\bissc\Bissc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\encoder\bissc\Bissc.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\encoder\bissc\Jtw24.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\encoder\bissc\Jtw24.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\encoder\cwCcw\CwCcw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\encoder\cwCcw\CwCcw.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\encoder\pulseDir\PulseDir.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\encoder\pulseDir\PulseDir.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\encoder\pulseOnly\PulseOnly.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\encoder\pulseOnly\PulseOnly.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\encoder\quadrature\Quadrature.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\encoder\quadrature\Quadrature.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\encoder\quadratureEsp32\QuadratureEsp32.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\encoder\quadratureEsp32\QuadratureEsp32.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\encoder\serialBridge\SerialBridge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\encoder\serialBridge\SerialBridge.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\ethernet\EthernetManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\ethernet\EthernetManager.defaults.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\ethernet\EthernetManager.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\ethernet\cmdServer\CmdServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\ethernet\cmdServer\CmdServer.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\ethernet\webServer\WebServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\ethernet\webServer\WebServer.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\gpio\Ds2413.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\gpio\Ds2413.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\gpio\Gpio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\gpio\Gpio.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\gpio\Mcp23008.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\gpio\Mcp23008.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\gpio\Mcp23017.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\gpio\Mcp23017.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\gpio\Pcf8575.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\gpio\Pcf8575.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\gpio\Ssr74HC595.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\gpio\Ssr74HC595.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\gpio\Sws.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\gpio\Sws.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\gpio\Tca9555.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\gpio\Tca9555.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\nv\NV.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\nv\NV.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\nv\NV_24XX.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\nv\NV_24XX.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\nv\NV_EEPROM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\nv\NV_EEPROM.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\nv\NV_ESP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\nv\NV_ESP.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\nv\NV_M0.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\nv\NV_M0.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\nv\NV_MB85RC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\nv\NV_MB85RC.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pushButton\PushButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pushButton\PushButton.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\sense\Sense.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\sense\Sense.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\serial\Serial_IP_Ethernet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\serial\Serial_IP_Ethernet.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\serial\Serial_IP_Wifi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\serial\Serial_IP_Wifi.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\serial\Serial_IP_Wifi_Client.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\serial\Serial_IP_Wifi_Client.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\serial\Serial_Local.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\serial\Serial_Local.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\serial\Serial_MEGA2560.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\serial\Serial_MEGA2560.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\serial\Serial_ST4_Master.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\serial\Serial_ST4_Master.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\serial\Serial_ST4_Slave.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\serial\Serial_ST4_Slave.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\softSpi\Pins.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\softSpi\SoftSpi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\softSpi\SoftSpi.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\sound\Sound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\sound\Sound.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tasks\HAL_ATMEGA328_HWTIMER.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tasks\HAL_EMPTY_HWTIMER.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tasks\HAL_ESP32_HWTIMER.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tasks\HAL_HWTIMERS.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tasks\HAL_MEGA2560_HWTIMER.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tasks\HAL_PROFILER.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tasks\HAL_STM32_HWTIMER.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tasks\HAL_TEENSY_HWTIMER.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tasks\OnTask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tasks\OnTask.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\DS3231.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\DS3231.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\DS3234.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\DS3234.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\GPS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\GPS.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\NTP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\NTP.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\PPS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\PPS.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\SD3031.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\SD3031.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\Teensy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\Teensy.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\Tls.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\watchdog\Watchdog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\watchdog\Watchdog.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\wifi\WifiManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\wifi\WifiManager.defaults.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\wifi\WifiManager.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\wifi\cmdServer\CmdServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\wifi\cmdServer\CmdServer.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\wifi\webServer\WebServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\wifi\webServer\WebServer.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\cmd\Cmd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\cmd\Cmd.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\keyPad\KeyPad.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\keyPad\KeyPad.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\st4Aux\St4Aux.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\st4Aux\St4Aux.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\status\Status.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\status\Status.features.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\status\Status.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\u8g2ext\u8g2_ext.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\u8g2ext\u8g2_ext.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\u8g2ext\u8g2_ext_catalog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\u8g2ext\u8g2_ext_catalog.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\u8g2ext\u8g2_ext_drawValue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\u8g2ext\u8g2_ext_event.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\u8g2ext\u8g2_ext_event.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\u8g2ext\u8g2_ext_input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\u8g2ext\u8g2_ext_input.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\u8g2ext\u8g2_ext_message.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\u8g2ext\u8g2_ext_message.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\u8g2ext\u8g2_ext_selection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\u8g2ext\u8g2_ext_selection.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\u8g2ext\u8g2_ext_value.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\weather\Weather.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libApp\weather\Weather.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\locales\Locale.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\locales\Locales.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\locales\Strings_de.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\locales\Strings_en.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pinmaps\Models.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pinmaps\Pins.Esp32.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pinmaps\Pins.Esp8266.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pinmaps\Pins.M0.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pinmaps\Pins.Teensy.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\userInterface\UserInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\userInterface\UserInterface.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\userInterface\bitmaps\Bitmaps.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\userInterface\menus\MenuAlignment.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\userInterface\menus\MenuMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\userInterface\menus\MenuMount.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\userInterface\menus\MenuSettings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\userInterface\menus\MenuSyncGoto.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\userInterface\message\Message.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\userInterface\message\Message.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="__vm\.SmartHandControllerVSK.vsarduino.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
