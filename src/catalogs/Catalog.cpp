@@ -11,13 +11,15 @@ const char* Txt_Bayer[25] = {
   "Alp","Bet","Gam","Del","Eps","Zet","Eta","The","Iot","Kap","Lam","Mu","Nu","Xi","Omi","Pi","Rho","Sig","Tau","Ups","Phi","Chi","Psi","Ome","?"
 };
 
+//@WTH#########################################
 // Type of object, in the Open NGC database. Do not change the
 // order of this, since it has to match what is in Open NGC
 const char* Txt_Object_Type[21] = {
-  "Galaxy",        "Open Cluster",   "Star",           "Double Star", "Other",      "Galaxy Pair",    "Galaxy Triplet",
-  "Galaxy Group",  "Globular Clstr", "Planetary Nbla", "Nebula",      "Hii Region", "Cluster+Nebula", "Asterism",
-  "Reflectn Nbla", "SuperNov Rmnt",  "Emission Nbla",  "Non Existant","Nova",       "Duplicate",      "Dark Nebula"
+  "Galaxie",        "Off. Haufen",   "Stern",   "Doppelstern", "andere",      "Galaxiepaar",    "Galaxie Triplet",
+  "Galaxiegruppe",  "Kugelhaufen", "Plan. Nebel", "Nebel",      "Hii Region", "Cluster+Nebel", "Asterism",
+  "Reflek. Nebel", "SuperNov Rest",  "Emission Neb.",  "Non Existant","Nova",  "Doppelt",      "Dunkelnebel"
 };
+//@WTH#########################################
 
 // Constellation abbreviation, alphabetical order
 const char* Txt_Constellations[89] = {

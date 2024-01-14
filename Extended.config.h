@@ -27,7 +27,7 @@
                                           //              ***     LEAVING THIS OPTION ENABLED CAN CAUSE EXCESSIVE NV          ***
                                           //              ***     WEAR AND DAMAGE THE MICROCONTROLLER NV SUBSYSTEM !!!        ***
 
-#define SERIAL_IP_MODE                STATION //         OFF, Use STATION to enable the interface (ESP32 only.)                   Option
+#define SERIAL_IP_MODE                OFF //         OFF, Use STATION to enable the interface (ESP32 only.)                   Option
 // IP ADDRESS SETTINGS -------------------------------------------------------------------------------------------------------------
                                           //              then specify SERIAL_IP as the serial port in Config.h
 

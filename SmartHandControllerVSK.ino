@@ -65,7 +65,7 @@ void systemServices() {
 #endif
 
 void setup(void) {
-  
+ // WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0); //Disable Brownout Detector
   // start debug serial port
   if (DEBUG == ON || DEBUG == VERBOSE) SERIAL_DEBUG.begin(SERIAL_DEBUG_BAUD);
   delay(2000);

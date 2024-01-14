@@ -12,7 +12,7 @@
 // ADJUST THE FOLLOWING TO CONFIGURE YOUR ADD-ON'S FEATURES ------------------------------------------------------------------------
 // <-Req'd = always must set, <-Often = usually must set, Option = optional, Adjust = adjust as req'd, Infreq = infrequently changed
 
-//#define Kuppel         //für den 30er auskommentieren
+//#define Kuppel         //fï¿½r den 30er auskommentieren
 
 //      Parameter Name              Value   Default  Notes                                                                      Hint
 // DISPLAY -------------------------------------------------------------------------------------------------------------------------
@@ -21,7 +21,7 @@
                                           //         The SSD1309 is often used on 1.54" or 2.3" I2C displays.
 
 // SERIAL PORTS --------------------------------------------------------------------------------------------------------------------
-#define SERIAL_ONSTEP          SERIAL_IP // .._ST4, SERIAL_ST4 for ST4 port sync comms, you can also use any other available Infreq
+#define SERIAL_ONSTEP               Serial// .._ST4, SERIAL_ST4 for ST4 port sync comms, you can also use any other available Infreq
                                           //         serial port (if pins are unused,) Serial3 on the Teensy3.2 or SERIAL_IP
                                           //         for example.  This is the serial interface connected to OnStep.
 #define SERIAL_ONSTEP_BAUD_DEFAULT   57600 //   9600, Common baud rates for these parameters are 9600,19200,57600,115200.      Infreq

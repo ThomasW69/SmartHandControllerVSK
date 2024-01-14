@@ -51,7 +51,6 @@
 #define L_ALGN_STAR_ALIGN "Sternausrichtung"
 #define L_ALGN_SHOW_MODEL "Zeige Modell"
 #define L_ALGN_CLEAR_MODEL "Loesche Modell"
-#define L_ALGN_RESET_HOME "Reset Home"
 
 
 #define L_ALGN_RESUME0 "Reset"
@@ -164,7 +163,7 @@
 #define L_MOUNT_DEFAULT_SPEED "Standard"
 #define L_MOUNT_SLOWER "Langsamer"
 #define L_MOUNT_SLOWEST "Langsamste"
-#define L_MOUNT_SPEED "Goto Speed"
+//#define L_MOUNT_SPEED "Goto Speed"
 
 #define L_MOUNT_BL "Getriebespiel"
 #define L_MOUNT_LIMIT_H "Horizont"
@@ -408,7 +407,7 @@
 #define L_FKEY_ROTF_UP "Rotat. schnell"
 #define L_SUCCESS "Erfolgreich"
 #define L_ADD_STAR "Stern hinzuf."
-#define L_FAILED "Failed"
+//#define L_FAILED "Failed"
 #define L_SLEWING_TO_STAR "Schwenke zu Stern"
 #define L_RECENTER_STAR "Zentriere Stern"
 #define L_SELECT_STAR "Waehle Stern"

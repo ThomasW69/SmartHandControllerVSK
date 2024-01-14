@@ -234,7 +234,7 @@ void UI::poll() {
       if (!moveSouth && (keyPad.s->isDown() || auxST4.s->isDown())) { moveSouth = true;  SERIAL_ONSTEP.write(ccMs); buttonCommand = true; } else
       if ( moveSouth && (keyPad.s->isUp()   && auxST4.s->isUp()))   { moveSouth = false; SERIAL_ONSTEP.write(ccQs); buttonCommand = true; keyPad.s->clearPress(); auxST4.s->clearPress(); }
     #else
-      if (!moveEast  && (keyPad.e->isDown())) { moveEast = true;   SERIAL_ONSTEP.write(ccMe); buttonCommand = true; } else
+     /* if (!moveEast && (keyPad.e->isDown())) { moveEast = true;   SERIAL_ONSTEP.write(ccMe); buttonCommand = true; } else
       if ( moveEast  && (keyPad.e->isUp()  )) { moveEast = false;  SERIAL_ONSTEP.write(ccQe); buttonCommand = true; keyPad.e->clearPress(); }
       if (!moveWest  && (keyPad.w->isDown())) { moveWest = true;   SERIAL_ONSTEP.write(ccMw); buttonCommand = true; } else
       if ( moveWest  && (keyPad.w->isUp()  )) { moveWest = false;  SERIAL_ONSTEP.write(ccQw); buttonCommand = true; keyPad.w->clearPress(); }
@@ -242,6 +242,19 @@ void UI::poll() {
       if ( moveNorth && (keyPad.n->isUp()  )) { moveNorth = false; SERIAL_ONSTEP.write(ccQn); buttonCommand = true; keyPad.n->clearPress(); }
       if (!moveSouth && (keyPad.s->isDown())) { moveSouth = true;  SERIAL_ONSTEP.write(ccMs); buttonCommand = true; } else
       if ( moveSouth && (keyPad.s->isUp()  )) { moveSouth = false; SERIAL_ONSTEP.write(ccQs); buttonCommand = true; keyPad.s->clearPress(); }
+     */
+     //@WTH############################################################################################################################## 
+    if (!moveEast  && (keyPad.e->isDown())) { moveEast = true;   SERIAL_ONSTEP.print(":Me#"); buttonCommand = true; } else
+    if ( moveEast  && (keyPad.e->isUp()))   { moveEast = false;  SERIAL_ONSTEP.print(":Qe#"); buttonCommand = true; keyPad.e->clearPress(); }
+    if (!moveWest  && (keyPad.w->isDown())) { moveWest = true;   SERIAL_ONSTEP.print(":Mw#"); buttonCommand = true; }  else
+    if ( moveWest  && (keyPad.w->isUp()))   { moveWest = false;  SERIAL_ONSTEP.print(":Qw#"); buttonCommand = true; keyPad.w->clearPress(); }
+    if (!moveNorth && (keyPad.n->isDown())) { moveNorth = true;  SERIAL_ONSTEP.print(":Mn#"); buttonCommand = true; } else
+    if ( moveNorth && (keyPad.n->isUp()))   { moveNorth = false; SERIAL_ONSTEP.print(":Qn#"); buttonCommand = true; keyPad.n->clearPress(); }
+    if (!moveSouth && (keyPad.s->isDown())) { moveSouth = true;  SERIAL_ONSTEP.print(":Ms#"); buttonCommand = true; } else
+    if ( moveSouth && (keyPad.s->isUp()))   { moveSouth = false; SERIAL_ONSTEP.print(":Qs#"); buttonCommand = true; keyPad.s->clearPress(); }
+    //#################################################################################################################################
+
+    
     #endif
     if (buttonCommand) { time_last_action = millis(); return; }
   }
@@ -566,13 +579,12 @@ void UI::updateMainDisplay(u8g2_uint_t page) {
         }
       }
       //@WTH############################################################################################
-            //GPS info
+      //GPS info
       if (status.isGPSValid()) { display->drawXBMP(x - icon_width, 0, icon_width, icon_height, GNSS_bits);   x -= icon_width + 1; };
       //WIFI info
       Status::WifiState   curWIFI = status.getWifiState();
-      if (curWIFI == Status::WIFI_OFF) { display->drawXBMP(x - icon_width, 0, icon_width, icon_height, wifi_not_connected_bits);   x -= icon_width + 1; }
-      else
-          if (curWIFI == Status::WIFI_ON) { display->drawXBMP(x - icon_width, 0, icon_width, icon_height, wifi_bits);   x -= icon_width + 1; }
+      if (curWIFI == Status::WIFI_OFF) { display->drawXBMP(x - icon_width, 0, icon_width, icon_height, wifi_not_connected_bits);   x -= icon_width + 1; } else
+      if (curWIFI == Status::WIFI_ON) { display->drawXBMP(x - icon_width, 0, icon_width, icon_height, wifi_bits);   x -= icon_width + 1; }
       //ToDo  Akkustand
 
 
@@ -713,7 +725,7 @@ void UI::drawIntro() {
   do {
     display->drawXBMP(0, 0, onstep_logo_width, onstep_logo_height, onstep_logo_bits);
   } while (display->nextPage());
-  delay(1000);
+  delay(2000);
 }
 
 // misc.

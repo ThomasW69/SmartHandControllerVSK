@@ -183,7 +183,7 @@ void UI::menuTelescopeSelect()
     choice = display->UserInterfaceSelectionList(&keyPad, L_MOUNT_TELESCOPE, choice, L_MOUNT_TEL1 "\n" L_MOUNT_TEL2);
     if (choice) {
         if (choice == 1) ok = message.show(onStep.Set(":SX96,1#"), false); else
-            if (choice == 2) ok = message.show(onStep.Set(":SX96,2#"), false);
+        if (choice == 2) ok = message.show(onStep.Set(":SX96,2#"), false);
     }
 }
 
@@ -224,7 +224,7 @@ void UI::SpiralSearch()
 {
     bool ok = false;
     onStep.Set(":Mp#"); // Spiral Search
-    message.show("Taste wenn", "gefunden", -1);
+    message.show("Taste druecken wenn", "gefunden", -1);
     onStep.Set(":Mp#"); // SpiralEnde
 }
 //###################################################################
